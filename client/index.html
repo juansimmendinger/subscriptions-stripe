@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stripe Subscriptions</title>
+    <meta name="description" content="A demo of Stripe Payment Intents" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <!-- Load Stripe.js on your website. -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    
+    <div class="sr-root">
+      <div class="sr-main">
+
+        <h1>Choose a Subscription Plan</h1>
+
+        <div class="price-table-container">
+          <section>
+            <section>
+              <form action="/create-checkout-session" method="POST">
+                <input type="hidden" id="lowPrice" name="priceId">
+                <img
+                  src="/img/bronze.jpg"
+                  width="120"
+                  height="120"
+                  />
+                <div class="name">Quantum Temple Bronze</div>
+                <div class="price">$3</div>
+                <div class="duration">per month</div>
+                <button id="pro-plan-btn">Select</button>
+              </form>
+            </section>
+            <form action="/create-checkout-session" method="POST">
+              <input type="hidden" id="basicPrice" name="priceId">
+              <img
+                src="/img/silver.jpg"
+                width="120"
+                height="120"
+                />
+              <div class="name">Quantum Temple Silver</div>
+              <div class="price">$5</div>
+              <div class="duration">per month</div>
+              <button id="basic-plan-btn">Select</button>
+            </form>
+          </section>
+          <section>
+            <form action="/create-checkout-session" method="POST">
+              <input type="hidden" id="proPrice" name="priceId">
+              <img
+                src="/img/gold.jpg"
+                width="120"
+                height="120"
+                />
+              <div class="name">Quantum Temple Gold</div>
+              <div class="price">$15</div>
+              <div class="duration">per month</div>
+              <button id="pro-plan-btn">Select</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div id="error-message" class="error-message"></div>
+  </body>
+</html>
